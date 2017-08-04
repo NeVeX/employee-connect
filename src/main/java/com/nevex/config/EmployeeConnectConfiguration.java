@@ -15,7 +15,7 @@ public class EmployeeConnectConfiguration extends WebMvcConfigurerAdapter {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName(ViewNames.LOGIN_PAGE);
+//        registry.addViewController("/").setViewName(ViewNames.LOGIN_PAGE);
         registry.addViewController("/"+ ViewNames.LOGIN_VIEW_NAME).setViewName(ViewNames.LOGIN_PAGE);
         registry.addViewController("/"+ ViewNames.HOME_VIEW_NAME).setViewName(ViewNames.HOME_PAGE);
         registry.setOrder(Ordered.HIGHEST_PRECEDENCE);

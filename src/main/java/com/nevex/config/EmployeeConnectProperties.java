@@ -14,7 +14,7 @@ import javax.validation.constraints.NotNull;
 @Validated
 @Configuration
 @ConfigurationProperties(prefix = "employee-connect")
-class EmployeeConnectProperties {
+public class EmployeeConnectProperties {
 
     @Valid
     @NotNull(message = "No ldap properties are set")
@@ -25,9 +25,15 @@ class EmployeeConnectProperties {
         @NotBlank(message = "No ldap urls were provided")
         private String urls;
         @NotBlank(message = "No ldap rootDn was provided")
-        private String rootDn;
+        private String baseDn;
         @NotBlank(message = "No ldap domain was provided")
         private String domain;
+        @NotBlank(message = "No ldap searchUserDn was provided")
+        private String searchUserDn;
+        @NotBlank(message = "No ldap searchUserPassword was provided")
+        private String searchUserPassword;
+        @NotBlank(message = "No ldap searchUserBaseDn was provided")
+        private String searchUserBaseDn;
 
         public String getUrls() {
             return urls;
@@ -37,12 +43,12 @@ class EmployeeConnectProperties {
             this.urls = urls;
         }
 
-        public String getRootDn() {
-            return rootDn;
+        public String getBaseDn() {
+            return baseDn;
         }
 
-        public void setRootDn(String rootDn) {
-            this.rootDn = rootDn;
+        public void setBaseDn(String baseDn) {
+            this.baseDn = baseDn;
         }
 
         public String getDomain() {
@@ -53,12 +59,38 @@ class EmployeeConnectProperties {
             this.domain = domain;
         }
 
+        public String getSearchUserDn() {
+            return searchUserDn;
+        }
+
+        public void setSearchUserDn(String searchUserDn) {
+            this.searchUserDn = searchUserDn;
+        }
+
+        public String getSearchUserPassword() {
+            return searchUserPassword;
+        }
+
+        public void setSearchUserPassword(String searchUserPassword) {
+            this.searchUserPassword = searchUserPassword;
+        }
+
+        public String getSearchUserBaseDn() {
+            return searchUserBaseDn;
+        }
+
+        public void setSearchUserBaseDn(String searchUserBaseDn) {
+            this.searchUserBaseDn = searchUserBaseDn;
+        }
+
         @Override
         public String toString() {
             return "LdapProperties{" +
                     "urls='" + urls + '\'' +
-                    ", rootDn='" + rootDn + '\'' +
+                    ", baseDn='" + baseDn + '\'' +
                     ", domain='" + domain + '\'' +
+                    ", searchUserDn='" + searchUserDn + '\'' +
+                    ", searchUserBaseDn='" + searchUserBaseDn + '\'' +
                     '}';
         }
     }
