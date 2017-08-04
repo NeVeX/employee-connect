@@ -13,3 +13,4 @@
 .idea
 
 src/main/resources/application-prosper.yml
+application-prosper*.yml

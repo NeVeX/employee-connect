@@ -33,10 +33,10 @@ public class TestController {
         ldapProperties = properties.getLdap();
     }
 
-    @PostConstruct
-    void init() throws Exception {
-        getAllEmployees();
-    }
+//    @PostConstruct
+//    void init() throws Exception {
+//        getAllEmployees();
+//    }
 
     @GetMapping(value = "/employees", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> getAllEmployees() throws NamingException {

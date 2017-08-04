@@ -11,4 +11,4 @@ server:
 # Defaulting the profile to use the prosper settings
 spring:
   profiles:
-    active: prosper
+    active: prosper, prosper-qa32
