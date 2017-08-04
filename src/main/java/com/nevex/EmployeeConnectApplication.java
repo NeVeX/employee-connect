@@ -1,4 +1,4 @@
-package com.prosper.mark;
+package com.nevex;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,4 +12,5 @@ public class EmployeeConnectApplication {
     public static void main(String[] args) {
         SpringApplication.run(EmployeeConnectApplication.class, args);
     }
+
 }

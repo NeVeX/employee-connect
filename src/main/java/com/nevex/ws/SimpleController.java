@@ -1,4 +1,4 @@
-package com.prosper.mark.ws;
+package com.nevex.ws;
 
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -19,3 +19,7 @@ employee-connect:
 spring:
   profiles:
     active: prosper
+
+#spring.mvc.view.prefix: /static/ # Spring MVC view prefix.
+#spring.mvc.view.suffix: .html # Spring MVC view suffix.
+#spring.mvc.static-path-pattern: /resources/static/**

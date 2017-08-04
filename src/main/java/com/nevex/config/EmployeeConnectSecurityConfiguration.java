@@ -1,5 +1,6 @@
-package com.prosper.mark.config;
+package com.nevex.config;
 
+import com.nevex.ws.ViewNames;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ import javax.validation.Valid;
  * Created by mcunningham on 8/3/2017.
  */
 @Configuration
-@EnableWebSecurity
+//@EnableWebSecurity
 public class EmployeeConnectSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(EmployeeConnectSecurityConfiguration.class);
@@ -35,16 +36,21 @@ public class EmployeeConnectSecurityConfiguration extends WebSecurityConfigurerA
     protected void configure(HttpSecurity http) throws Exception {
         http
             .csrf().disable()
-            .authorizeRequests()
-            .anyRequest().fullyAuthenticated()
+            .formLogin()
+                .loginPage("/"+ ViewNames.LOGIN_VIEW_NAME)
+                .defaultSuccessUrl("/"+ ViewNames.HOME_VIEW_NAME)
+                .permitAll() // Let anyone get to the login page
             .and()
-            .formLogin();
+                .logout().permitAll()
+            .and()
+                .authorizeRequests()
+                .antMatchers("/resources/**").permitAll()
+             .anyRequest().fullyAuthenticated();
     }
 
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         EmployeeConnectProperties.LdapProperties ldapProperties = properties.getLdap();
-
         ActiveDirectoryLdapAuthenticationProvider provider=
                 new ActiveDirectoryLdapAuthenticationProvider(
                         ldapProperties.getDomain(),

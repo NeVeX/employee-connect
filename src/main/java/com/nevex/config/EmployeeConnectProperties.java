@@ -1,4 +1,4 @@
-package com.prosper.mark.config;
+package com.nevex.config;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.boot.context.properties.ConfigurationProperties;
